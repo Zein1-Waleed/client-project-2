@@ -476,6 +476,28 @@ header .social-links{
     right: 0;
     bottom: 0;
   }
+  @media (max-width:767px){
+    .fnc-slide__mask{
+        height: 65vh;
+        overflow: visible;
+        right: 40%;
+    }
+    .fnc-slide__heading-line:nth-child(2) {
+        padding-left: 20px;
+      }
+
+      .fnc-slide__content {
+        left: 5%;
+      }
+      .m--active-slide .fnc-slide__heading-line span{
+        font-size: 3rem;
+      }
+      .fnc-slide .m--blend-green .fnc-slide-1 .m--active-slide .m--previous-slide span{
+        
+        font-size: 3rem;
+      }
+}
+
   .fnc-nav__bgs {
     z-index: -1;
     overflow: hidden;
@@ -646,7 +668,7 @@ header .social-links{
   .example-slider .fnc-slide-1 .fnc-slide__mask-inner {
     background-position: center;
     background-size: cover;
-    background-image: url("./images/harley-davidson-6_OBa-II5Go-unsplash.jpg");
+    background-image: url("./images/harley-davidson-6_OBa-II5Go-unsplash.webp");
   }
   .example-slider .fnc-slide-2 .fnc-slide__inner,
   .example-slider .fnc-slide-2 .fnc-slide__mask-inner {
@@ -844,23 +866,6 @@ header .social-links{
     transform: rotate(-45deg) scaleX(0) translateZ(0);
   }
 
-@media (max-width:767px){
-    .fnc-slide__mask{
-        height: 65vh;
-        overflow: visible;
-        right: 40%;
-    }
-    .fnc-slide__heading-line:nth-child(2) {
-        padding-left: 20px;
-      }
-
-      .fnc-slide__content {
-        left: 5%;
-      }
-      .m--active-slide .fnc-slide__heading-line span{
-        font-size: 3rem;
-      }
-}
 
 
 
