@@ -1,25 +1,12 @@
-// let menu = document.getElementById("menu")
-// let navlist = document.getElementById("nav-list")
-// let navHolder = navlist.getElementsByClassName("nav-holder")[0];
+let menu = document.getElementById("menu")
+let navlist = document.getElementById("nav-list")
+let navHolder = navlist.getElementsByClassName("nav-holder")[0];
 
 
-// menu.onclick = ()=>{
-//   navlist.style.width = "100vw"
-//   navlist.style.height = "100vh"
-//   navlist.style.borderRadius = "0px"
-//   navlist.style.visibility = "visible"
-//   navlist.style.zIndex = "10000000000"
+menu.onclick = ()=>{
+    navlist.classList.add("active")
+}
 
-//   navHolder.style.opacity = "1"
-// }
-
-// navlist.onclick = ()=>{
-//   navlist.style.width = "0vw"
-//   navlist.style.height = "0vh"
-//   navlist.style.borderRadius = "50%"
-//   navlist.style.visibility = "hidden"
-//   navHolder.style.opacity = "0"
-// }
 
 
 //   import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.mjs'

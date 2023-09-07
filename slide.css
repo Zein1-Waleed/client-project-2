@@ -152,19 +152,42 @@ html {
   background-position: center;
   background-size: cover;
 }
+.slideshow .slider .item {
+
+}
+
+.slideshow .slider .item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* This ensures that the image covers the entire slide */
+}
+/* By setting a fixed height for the .item elements within your slider and using object-fit: cover; for the images, you can make all the slides look the same in terms of height, and the images will be scaled to cover the entire slide.
+
+Make sure to adjust the height value in the CSS code above to match the desired height for your slides. This should help ensure that all slides have a consistent appearance. */
+
+
+
+
+.slideshow{
+  height: 100vh;
+}
+
 
 @media (max-width: 767px) {
-.slideshow-text .spex{
-    /* font-size: 11px; */
-    letter-spacing: 10px;
+  .slideshow .item.spex{
+    font-size: 10px !important;
   }
   .slideshow-text {
+    letter-spacing: 10px;
     font-size: 16px; /* Adjust the font size for better readability on mobile devices */
     text-align: center; /* Center-align the text on mobile devices */
     white-space: nowrap;
 
   }
-
+  .slideshow .slick-dots{
+    position: absolute;
+    top: 90%;
+  }
   .slideshow {
     width: 100%; /* Make the slideshow full width for mobile devices */
     height: 100vh; /* Adjust the height for mobile devices */

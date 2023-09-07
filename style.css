@@ -47,6 +47,8 @@ header{
 }
 
 header nav{
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.652);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -84,18 +86,22 @@ header .menu{
 
 @media (max-width:767px) {
   header .nav-list{
-    /* height: 20vh; */
+transition: .6s;
     width: 0%;
     background-color: #fff;
     flex-direction: column;
     display: block;
     position:fixed;
-    top: 0;
+    top: 0px;
     right: 0;
+    opacity: 0;
   }
   header .nav-list.active{
+    right: 0;
+    width: 100%; 
+    opacity: 1;
+    top: 60px;
     padding: 20px;
-    width: 100%;
     
   }
   header .nav-list *{
