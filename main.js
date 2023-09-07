@@ -1,221 +1,86 @@
-let menu = document.getElementById("menu")
-let navlist = document.getElementById("nav-list")
-let navHolder = navlist.getElementsByClassName("nav-holder")[0];
+// let menu = document.getElementById("menu")
+// let navlist = document.getElementById("nav-list")
+// let navHolder = navlist.getElementsByClassName("nav-holder")[0];
 
 
-menu.onclick = ()=>{
-  navlist.style.width = "100vw"
-  navlist.style.height = "100vh"
-  navlist.style.borderRadius = "0px"
-  navlist.style.visibility = "visible"
-  navlist.style.zIndex = "10000000000"
+// menu.onclick = ()=>{
+//   navlist.style.width = "100vw"
+//   navlist.style.height = "100vh"
+//   navlist.style.borderRadius = "0px"
+//   navlist.style.visibility = "visible"
+//   navlist.style.zIndex = "10000000000"
 
-  navHolder.style.opacity = "1"
-}
+//   navHolder.style.opacity = "1"
+// }
 
-navlist.onclick = ()=>{
-  navlist.style.width = "0vw"
-  navlist.style.height = "0vh"
-  navlist.style.borderRadius = "50%"
-  navlist.style.visibility = "hidden"
-  navHolder.style.opacity = "0"
-}
-
-
+// navlist.onclick = ()=>{
+//   navlist.style.width = "0vw"
+//   navlist.style.height = "0vh"
+//   navlist.style.borderRadius = "50%"
+//   navlist.style.visibility = "hidden"
+//   navHolder.style.opacity = "0"
+// }
 
 
+//   import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.mjs'
+//   const swiper = new Swiper('.swiper', {
+//     // Optional parameters
+//     direction: 'horizontal',
+//     loop: true,
 
+//     // If we need pagination
+//     pagination: {
+//       el: '.swiper-pagination',
+//     },
 
-(function () {
-  function $$(selector, context) {
-    context = context || document;
-    var elements = context.querySelectorAll(selector);
-    return Array.prototype.slice.call(elements);
-  }
+//     // Navigation arrows
+//     // navigation: {
+//     //   nextEl: next(),
+//     //   prevEl: '.swiper-button-prev',
+//     // },
 
-  function _fncSliderInit($slider, options) {
-    var prefix = ".fnc-";
-
-    var slidesCont = $slider.querySelector(prefix + "slider__slides");
-    var slides = $$(prefix + "slide", $slider);
-    var controls = $$(prefix + "nav__control", $slider);
-    var controlsBgs = $$(prefix + "nav__bg", $slider);
-    var progressAS = $$(prefix + "nav__control-progress", $slider);
-
-    var numOfSlides = slides.length;
-    var curSlide = 1;
-    var sliding = false;
-    var slidingAT =
-      +parseFloat(getComputedStyle(slidesCont)["transition-duration"]) * 1000;
-    var slidingDelay =
-      +parseFloat(getComputedStyle(slidesCont)["transition-delay"]) * 1000;
-
-    var autoSlidingActive = false;
-    var autoSlidingTO;
-    var autoSlidingDelay = 5000; // default autosliding delay value
-    var autoSlidingBlocked = false;
-
-    var activeSlide;
-    var activeControlsBg;
-    var prevControl;
-
-    function setIDs() {
-      slides.forEach(function (slide, index) {
-        slide.classList.add("fnc-slide-" + (index + 1));
-      });
-
-      controls.forEach(function (control, index) {
-        control.setAttribute("data-slide", index + 1);
-        control.classList.add("fnc-nav__control-" + (index + 1));
-      });
-
-      controlsBgs.forEach(function (bg, index) {
-        bg.classList.add("fnc-nav__bg-" + (index + 1));
-      });
-    }
-
-    setIDs();
-
-    function afterSlidingHandler() {
-      $slider
-        .querySelector(".m--previous-slide")
-        .classList.remove("m--active-slide", "m--previous-slide");
-      $slider
-        .querySelector(".m--previous-nav-bg")
-        .classList.remove("m--active-nav-bg", "m--previous-nav-bg");
-
-      activeSlide.classList.remove("m--before-sliding");
-      activeControlsBg.classList.remove("m--nav-bg-before");
-      prevControl.classList.remove("m--prev-control");
-      prevControl.classList.add("m--reset-progress");
-      var triggerLayout = prevControl.offsetTop;
-      prevControl.classList.remove("m--reset-progress");
-
-      sliding = false;
-      var layoutTrigger = $slider.offsetTop;
-
-      if (autoSlidingActive && !autoSlidingBlocked) {
-        setAutoslidingTO();
-      }
-    }
-
-    function performSliding(slideID) {
-      if (sliding) return;
-      sliding = true;
-      window.clearTimeout(autoSlidingTO);
-      curSlide = slideID;
-
-      prevControl = $slider.querySelector(".m--active-control");
-      prevControl.classList.remove("m--active-control");
-      prevControl.classList.add("m--prev-control");
-      $slider
-        .querySelector(prefix + "nav__control-" + slideID)
-        .classList.add("m--active-control");
-
-      activeSlide = $slider.querySelector(prefix + "slide-" + slideID);
-      activeControlsBg = $slider.querySelector(prefix + "nav__bg-" + slideID);
-
-      $slider
-        .querySelector(".m--active-slide")
-        .classList.add("m--previous-slide");
-      $slider
-        .querySelector(".m--active-nav-bg")
-        .classList.add("m--previous-nav-bg");
-
-      activeSlide.classList.add("m--before-sliding");
-      activeControlsBg.classList.add("m--nav-bg-before");
-
-      var layoutTrigger = activeSlide.offsetTop;
-
-      activeSlide.classList.add("m--active-slide");
-      activeControlsBg.classList.add("m--active-nav-bg");
-
-      setTimeout(afterSlidingHandler, slidingAT + slidingDelay);
-    }
-
-    function controlClickHandler() {
-      if (sliding) return;
-      if (this.classList.contains("m--active-control")) return;
-      if (options.blockASafterClick) {
-        autoSlidingBlocked = true;
-        $slider.classList.add("m--autosliding-blocked");
-      }
-
-      var slideID = +this.getAttribute("data-slide");
-
-      performSliding(slideID);
-    }
-
-    controls.forEach(function (control) {
-      control.addEventListener("click", controlClickHandler);
-    });
-
-    function setAutoslidingTO() {
-      window.clearTimeout(autoSlidingTO);
-      var delay = +options.autoSlidingDelay || autoSlidingDelay;
-      curSlide++;
-      if (curSlide > numOfSlides) curSlide = 1;
-
-      autoSlidingTO = setTimeout(function () {
-        performSliding(curSlide);
-      }, delay);
-    }
-
-    if (options.autoSliding || +options.autoSlidingDelay > 0) {
-      if (options.autoSliding === false) return;
-
-      autoSlidingActive = true;
-      setAutoslidingTO();
-
-      $slider.classList.add("m--with-autosliding");
-      var triggerLayout = $slider.offsetTop;
-
-      var delay = +options.autoSlidingDelay || autoSlidingDelay;
-      delay += slidingDelay + slidingAT;
-
-      progressAS.forEach(function ($progress) {
-        $progress.style.transition = "transform " + delay / 1000 + "s";
-      });
-    }
-
-    $slider
-      .querySelector(".fnc-nav__control:first-child")
-      .classList.add("m--active-control");
-  }
-
-  var fncSlider = function (sliderSelector, options) {
-    var sliders = $$(sliderSelector);
-
-    sliders.forEach(function (slider) {
-      _fncSliderInit(slider, options);
-    });
-  };
-
-  window.fncSlider = fncSlider;
-})();
-
-/* not part of the slider scripts */
-
-/* Slider initialization
-options:
-autoSliding - boolean
-autoSlidingDelay - delay in ms. If autoSliding is on and no value provided, default value is 5000
-blockASafterClick - boolean. If user clicked any sliding control, auto-sliding won't start again
-*/
-fncSlider(".example-slider", { autoSlidingDelay: 4000 });
-
-// var demoCont = document.querySelector(".demo-cont");
-
-// [].slice.call(document.querySelectorAll(".fnc-slide__action-btn")).forEach(function (btn) {
-//   btn.addEventListener("click", function () {
-//     demoCont.classList.toggle("credits-active");
+//     // And if we need scrollbar
+//     scrollbar: {
+//       el: '.swiper-scrollbar',
+//     },
 //   });
-// });
+//   function triggerNext() {
+//     swiper.slideNext(); // This method will go to the next slide
+//   }
 
-// document.querySelector(".demo-cont__credits-close").addEventListener("click", function () {
-//   demoCont.classList.remove("credits-active");
-// });
+//   // Set an interval to trigger "next" every one second (1000 milliseconds)
+//   setInterval(triggerNext, 5000);
 
-// document.querySelector(".js-activate-global-blending").addEventListener("click", function () {
-//   document.querySelector(".example-slider").classList.toggle("m--global-blending-active");
-// });
+
+
+
+let productsrRow = document.getElementById("products-row")
+
+fetch("../data.json").then((e)=>e.json()).then(data =>{
+  for (let i = 0; i <Object.keys(data).length;i++){
+      let x = `
+          
+            <div class="image-holder">
+                <img src="${data[i].image}" alt="">
+            </div>
+            <div class="name">
+                <h3>${data[i].name}
+                </h3>
+            </div>
+            <div class="model">
+                <h4>model: ${data[i].model}</h4>
+            </div>
+            <div class="description">
+                <p><h4>Description</h4> : ${data[i].description}.</p>
+            </div>
+          
+      `
+      let col = document.createElement('div')
+      col.className = "col"
+      col.innerHTML = x
+      productsrRow.append(col)
+  }
+  // console.log(Object.keys(data))
+})
+
+
