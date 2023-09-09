@@ -1,26 +1,22 @@
 {
     "0":{
-        "image":"./images/suzuki.webp",
-        "name":"goldwing",
-        "model":"2018",
-        "description":"blablaaaaaa"
+        "image":"./images/products/1.webp",
+        "name":"GOLDWING 2018-2020 TAIL LIGHT TRIM ACCENTS CHROME",
+        "price":"300"
     },
     "1":{
-        "image":"./images/honda.webp",
-        "name":"goldwing",
-        "model":"2020",
-        "description":"blablaaaaaa"
+        "image":"./images/products/2.webp",
+        "name":"GOLDWING 2018-2020 TAIL LIGHT TRIM ACCENTS CHROME",
+        "price":"300"
     },
     "2":{
-        "image":"./images/honda.webp",
-        "name":"goldwing",
-        "model":"2020",
-        "description":"blablaaaaaa"
+        "image":"./images/products/3.webp",
+        "name":"GOLDWING 2018-2020 TAIL LIGHT TRIM ACCENTS CHROME",
+        "price":"300"
     },
     "3":{
-        "image":"./images/honda.webp",
-        "name":"goldwing",
-        "model":"2020",
-        "description":"blablaaaaaa"
+        "image":"./images/products/4.webp",
+        "name":"GOLDWING 2018-2020 TAIL LIGHT TRIM ACCENTS CHROME",
+        "price":"300"
     }
 }

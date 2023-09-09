@@ -56,7 +56,7 @@ function initSlider() {
 
     $slider.on('mouseup', function () {
       // Start the automatic sliding again after the user interaction
-      intervalId = setInterval(autoSlide, 5000);
+      intervalId = setInterval(autoSlide, 2000);
     });
 
     sliderInitialized = true; // Mark the slider as initialized

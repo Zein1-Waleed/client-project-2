@@ -1,65 +1,42 @@
 let menu = document.getElementById("menu")
 let navlist = document.getElementById("nav-list")
 let navHolder = navlist.getElementsByClassName("nav-holder")[0];
+let header = document.getElementsByTagName("header")[0]
+function showNav(){
 
-
-menu.onclick = ()=>{
     navlist.classList.add("active")
 }
 
+menu.onclick = ()=>{
+    showNav()
+}
 
+document.body.onclick = (e)=>{
 
-//   import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.mjs'
-//   const swiper = new Swiper('.swiper', {
-//     // Optional parameters
-//     direction: 'horizontal',
-//     loop: true,
-
-//     // If we need pagination
-//     pagination: {
-//       el: '.swiper-pagination',
-//     },
-
-//     // Navigation arrows
-//     // navigation: {
-//     //   nextEl: next(),
-//     //   prevEl: '.swiper-button-prev',
-//     // },
-
-//     // And if we need scrollbar
-//     scrollbar: {
-//       el: '.swiper-scrollbar',
-//     },
-//   });
-//   function triggerNext() {
-//     swiper.slideNext(); // This method will go to the next slide
-//   }
-
-//   // Set an interval to trigger "next" every one second (1000 milliseconds)
-//   setInterval(triggerNext, 5000);
+    navlist.classList.remove("active")
+    if(e.target.parentElement == menu){
+        showNav()
+    }
+}
 
 
 
 
 let productsrRow = document.getElementById("products-row")
 
-fetch("../data.json").then((e)=>e.json()).then(data =>{
+fetch("./data.json").then((e)=>e.json()).then(data =>{
   for (let i = 0; i <Object.keys(data).length;i++){
       let x = `
-          
+            <div class="name">
+                <h5>${data[i].name}</h5>
+            </div>
             <div class="image-holder">
                 <img src="${data[i].image}" alt="">
             </div>
-            <div class="name">
-                <h3>${data[i].name}
-                </h3>
-            </div>
-            <div class="model">
-                <h4>model: ${data[i].model}</h4>
-            </div>
-            <div class="description">
-                <p><h4>Description</h4> : ${data[i].description}.</p>
-            </div>
+           <div class = "price">
+           
+            <span>AED:</span><h3>${data[i].price}</h3>
+           </div>
           
       `
       let col = document.createElement('div')
@@ -67,7 +44,43 @@ fetch("../data.json").then((e)=>e.json()).then(data =>{
       col.innerHTML = x
       productsrRow.append(col)
   }
-  // console.log(Object.keys(data))
+})
+setInterval(()=>{
+    if (window.scrollY >= 200){
+        header.classList.add("active")
+    }else{
+        
+        header.classList.remove("active")
+    }
+},200)
+
+
+
+const sr = ScrollReveal();
+
+sr.reveal(".products",{
+    duration: 1000,    // Animation duration in milliseconds
+    delay: 100,        // Delay before the animation starts (in milliseconds)
+    origin: 'top',    // Starting position ('top', 'bottom', 'left', 'right', etc.)
+    distance: '50px',  // Distance moved during the animation
+    easing: 'ease-in-out', // Animation easing function
+    reset:true
+})
+sr.reveal(".brands",{
+    duration: 1000,    // Animation duration in milliseconds
+    delay: 100,        // Delay before the animation starts (in milliseconds)
+    origin: 'bottom',    // Starting position ('top', 'bottom', 'left', 'right', etc.)
+    distance: '50px',  // Distance moved during the animation
+    easing: 'ease-in-out', // Animation easing function
+    reset:true
 })
 
 
+sr.reveal(".about-us",{
+    duration: 1000,    // Animation duration in milliseconds
+    delay: 100,        // Delay before the animation starts (in milliseconds)
+    origin: 'bottom',    // Starting position ('top', 'bottom', 'left', 'right', etc.)
+    distance: '50px',  // Distance moved during the animation
+    easing: 'ease-in-out', // Animation easing function
+    reset:true
+})
