@@ -47,263 +47,6 @@ li{
 /* slide style */
 
 
-body,
-html {
-
-  scroll-behavior: smooth;
-  font-family: 'Roboto', sans-serif;
-
-}
-*{
-  
-}
-.slideshow {
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-}
-
-.slideshow .slider {
-  position: relative;
-  width: 100vw;
-  height: 100vw;
-  z-index: 2;
-}
-
-.slideshow .slider * {
-  color: #fff;
-  outline: none;
-}
-
-.slideshow .slider .item {
-  height: 100vh;
-  width: 100vw;
-  position: relative;
-  overflow: hidden;
-  border: none;
-}
-
-.slideshow .slider .item .text {
-  display: none;
-}
-
-.slideshow .slider .item img {
-  min-width: 101%;
-  min-height: 101%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-
-.slideshow .slick-dots li {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-.slideshow .slick-dots li button {
-  position: relative;
-  width: 20px;
-  height: 15px;
-  text-align: center;
-}
-
-.slideshow .slick-dots li button:before {
-  content: '';
-  background: #fff;
-  color: #fff;
-  height: 2px;
-  width: 20px;
-  border-radius: 0;
-  position: absolute;
-  top: 50%;
-  right: 0;
-  left: auto;
-  transform: translateY(-50%);
-  transition: all 0.3s ease-in-out;
-  opacity: 0.6;
-}
-
-.slideshow .slick-dots li.slick-active button:before {
-  width: 40px;
-  opacity: 1;
-}
-
-.slideshow.slideshow-right {
-  left: 0;
-  z-index: 1;
-  width: 50vw;
-  pointer-events: none;
-}
-
-.slideshow.slideshow-right .slider {
-  left: 0;
-  position: absolute;
-}
-
-.slideshow-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 100;
-  font-size: 80px;
-  width: 100vw;
-  text-align: center;
-  color: #fff;
-  font-family: 'Roboto Condensed', sans-serif;
-  font-weight: 100;
-  pointer-events: none;
-  text-transform: uppercase;
-  letter-spacing: 20px;
-  line-height: 0.8;
-}
-
-@media (max-width: 767px) {
-  .slideshow-text {
-    font-size: 40px;
-  }
-}
-
-.the-most {
-  position: fixed;
-  z-index: 1;
-  bottom: 0;
-  left: 0;
-  width: 50vw;
-  max-width: 200px;
-  padding: 10px;
-}
-
-.the-most img {
-  pointer-events: none;
-}
-.slider .item{
-}
-.item.we{
-  letter-spacing: 7px;
-}
-
-.slideshow .slider .item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* This ensures that the image covers the entire slide */
-}
-/* By setting a fixed height for the .item elements within your slider and using object-fit: cover; for the images, you can make all the slides look the same in terms of height, and the images will be scaled to cover the entire slide.
-
-Make sure to adjust the height value in the CSS code above to match the desired height for your slides. This should help ensure that all slides have a consistent appearance. */
-
-
-
-
-.slideshow{
-  height: 100vh;
-}
-
-.cover{
-  width: 80w;
-  height: 100vh;
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: 100;
-}
-
-@media (max-width: 767px) {
-  .slideshow .item.spex{
-    font-size: 10px !important;
-  }
-  .slideshow-text {
-    letter-spacing: 10px;
-    font-size: 16px; /* Adjust the font size for better readability on mobile devices */
-    text-align: center; /* Center-align the text on mobile devices */
-    white-space: nowrap;
-
-  }
-  /* .slideshow .slick-dots{
-    position: absolute;
-    top: 85%;
-  } */
-  .slideshow {
-    width: 100%; /* Make the slideshow full width for mobile devices */
-    height: 100vh; /* Adjust the height for mobile devices */
-  }
-
-  .slider .item img {
-    min-width: 100%; /* Ensure images cover the entire width for mobile devices */
-    min-height: auto; /* Allow images to adjust their height for mobile devices */
-  }
-}
-
-
-
-
-
-
-/* ----------for tablets---------- */
-
-@media(min-width:768px) and(max-width:959px){
-  .slideshow .item.spex{
-    font-size: 14px !important;
-  }
-  .slideshow-text {
-    letter-spacing: 10px;
-    font-size: 20px; /* Adjust the font size for better readability on mobile devices */
-    text-align: center; /* Center-align the text on mobile devices */
-    white-space: nowrap;
-
-  }
-}
-
-
-
-
-
-/* Rest of your existing CSS code */
-/* ... */
-/* In this updated code:
-
-I reduced the font size to 20px for better readability on mobile devices.
-
-I centered the text both horizontally and vertically using CSS properties like text-align, position, and transform.
-
-I made sure the images still cover the entire width while allowing their height to adjust for mobile devices.
-
-Please test this updated CSS code on mobile devices and adjust the font size and other styles as needed to achieve the desired appearance on various mobile screens.
-
- */
-
-
-
-
-
-/* Add media query for tablets (e.g., iPad Air) */
-@media (min-width: 768px) and (max-width: 1024px) {
-  .slideshow-text {
-    font-size: 50px; /* Adjust the font size for tablets */
-  }
-
-  .slideshow {
-    width: 100%;
-    /* max-width: 800px; */
-    height: 100vh;
-  }
-
-  .slider .item img {
-    min-width: 100%;
-    min-height: auto;
-  }
-}
-
-/* slide style */
-
-
 
 
 
@@ -326,7 +69,7 @@ Please test this updated CSS code on mobile devices and adjust the font size and
 }
 header{
   position: absolute;
-  z-index: 1000;
+  z-index: 10000;
   width: 100%;
   border-radius: 0;
 }
@@ -376,7 +119,8 @@ header .social-links{
   display: flex;
   text-align: center;
   align-items: center;
-  gap:10px;
+  justify-content: center;
+  gap:20px;
 }
 header .nav-list a.active{
   width: 100%;
@@ -615,6 +359,7 @@ transition: .3s;
   transform: translateY(-5px); /* Add a slight lift effect on hover */
 }
 @media (max-width:959px){
+  
   .products .col{
     height: 350px;
     flex-basis: calc(100% / 3);
@@ -622,6 +367,7 @@ transition: .3s;
 }
 @media (max-width:767px){
   .products .row{
+    padding-top: 5%;
     justify-content: space-between;
   }
   .products .col{
@@ -677,7 +423,7 @@ transition: .3s;
   color:green;
 }
 .about .container{
-  background-image: linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),url(./images/4.jfif);
+  background-image: linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),url(./images/3.jfif);
   background-position: center;
   background-size: cover;
   display: flex;
