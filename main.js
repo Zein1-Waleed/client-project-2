@@ -76,11 +76,16 @@ sr.reveal(".brands",{
 })
 
 
-sr.reveal(".about-us",{
-    duration: 1000,    // Animation duration in milliseconds
-    delay: 100,        // Delay before the animation starts (in milliseconds)
-    origin: 'bottom',    // Starting position ('top', 'bottom', 'left', 'right', etc.)
-    distance: '50px',  // Distance moved during the animation
-    easing: 'ease-in-out', // Animation easing function
-    reset:true
-})
+
+
+
+
+
+
+
+
+
+
+
+
+
