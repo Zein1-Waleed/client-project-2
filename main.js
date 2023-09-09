@@ -14,7 +14,7 @@ menu.onclick = ()=>{
 document.body.onclick = (e)=>{
 
     navlist.classList.remove("active")
-    if(e.target.parentElement == menu){
+    if(e.target.parentElement == menu || e.target == menu){
         showNav()
     }
 }

@@ -159,6 +159,11 @@ transition: .3s;
   }
   header .nav-list li{
     padding-bottom: 15px;
+    width: 100%;
+  }
+  header .nav-list li a{
+    width: 100%;
+    display: block;
   }
   header .nav-list.active{
     right: 0;
