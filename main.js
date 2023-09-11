@@ -82,6 +82,21 @@ sr.reveal(".brands",{
 
 
 
+let dots = document.getElementsByClassName("slick-dots")[0]
+
+for (let i = 0; i < dots.children.length; i++){
+    setInterval(()=>{
+        dots.removeAttribute("role")
+        dots.children[i].removeAttribute("role")
+        dots.children[i].removeAttribute('aria-hidden')
+        dots.children[i].getElementsByTagName("button")[0].removeAttribute("role")
+    dots.children[i].removeAttribute('aria-selected')
+    dots.children[i].removeAttribute('aria-controls')
+    dots.children[i].setAttribute('aria-label',"dot")
+    dots.children[i].getElementsByTagName("button")[0].setAttribute('aria-label',"dot")
+
+},0)
+}
 
 
 
@@ -89,5 +104,8 @@ sr.reveal(".brands",{
 
 
 
+let track = document.querySelectorAll(".slick-track")
 
-
+track[0].setAttribute("aria-label","slide")
+track[1].setAttribute("aria-label","slide")
+track[2].setAttribute("aria-label","slide")
