@@ -302,6 +302,20 @@ transition: .3s;
 .brands .row .col{
     flex-basis: calc(100% / 2);
     padding: 20px;
+    height: 300px;
+}
+.brands .row .col .honda,.brands .row .col .suzuki{
+  overflow: visible;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 100%;
+}
+.brands .row .col .honda{
+  background-image: url(./images/eox2lj1z-removebg-preview.png);
+}
+.brands .row .col .suzuki{
+  background-image: url(./images/suzuki.svg);
 }
 .brands .row .col img{
     width: 100%;
@@ -389,19 +403,29 @@ transition: .3s;
 /* Image Styles */
 .products .col .image-holder {
   width: 100%;
-  flex-grow: 1;
+  height: 100%;
   padding: 10px;
-  overflow: hidden; /* Hide overflowing image */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.products .col .image-holder img {
+.products .col .image-holder .image {
   width: 100%;
   height: 100%;
   transition: transform 0.2s ease; /* Add a hover transition effect */
 }
 
-.products .col:hover .image-holder img {
+.products .col:hover .image-holder .image {
   transform: scale(1.05); /* Slightly zoom in image on hover */
+}
+.products .col .image{
+  background-size: contain;
+    background-position: center center;
+    background-image: url(./images/products/1.webp);
+    height: 40%;
+    background-repeat: no-repeat;
 }
 
 /* Description Styles */

@@ -28,20 +28,22 @@ fetch("./data.json").then((e)=>e.json()).then(data =>{
   for (let i = 0; i <Object.keys(data).length;i++){
       let x = `
             <div class="name">
-                <h5>${data[i].name}</h5>
+                <span>${data[i].name}</span>
             </div>
             <div class="image-holder">
-                <img src="${data[i].image}" alt="">
+                <div class = "image"></div>
             </div>
            <div class = "price">
            
-            <span>AED:</span><h3>${data[i].price}</h3>
+            <span>AED:</span><span class = "price">${data[i].price}</span>
            </div>
           
       `
       let col = document.createElement('div')
+
       col.className = "col"
       col.innerHTML = x
+      col.querySelectorAll(".image-holder .image")[0].style.backgroundImage = `url(${data[i].image})`
       productsrRow.append(col)
   }
 })
